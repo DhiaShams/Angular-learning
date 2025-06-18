@@ -56,8 +56,10 @@
         <div class="profile d-flex justify-content-between align-items-center">
           <img src="assets/images/noti.png" alt="" id="bell">
           <div class="contact">
-              <div class="fw-bold" id="name">Maria Christopher</div>
-              <div class="fw-lighter">4778 37829 389</div>
+            <div *ngIf="userData">
+              <div class="fw-bold" id="name">{{ userData.fname }} {{ userData.lname }}</div>
+              <div class="fw-lighter">{{ userData.phone }}</div>
+            </div>
           </div>
           <img src="assets/images/profile circle.png" alt="" id="profile">
         </div>
@@ -98,6 +100,25 @@
           <input type="text" placeholder="Add Signature">
         </div>
       </div>
+      <div class="details">
+        <h6>User Details</h6>
+        <ul *ngIf="userData">
+          <li>Email: {{ userData.email }}</li>
+          <li>Gender: {{ userData.gender }}</li>
+          <li>Country: {{ userData.country }}</li>
+          <li>Password: {{ userData.password }}</li>
+        </ul>
+      </div>
+
+      <!-- api -->
+      <div class="card  p-5 user-card" *ngFor="let user of usersList">
+        <div>
+             <h6 class="m-0">{{user.id}}</h6>
+          <p class="m-0"> {{user.title}} </p>
+        </div>
+       
+      </div>
+
 
     </div>
   </div>
