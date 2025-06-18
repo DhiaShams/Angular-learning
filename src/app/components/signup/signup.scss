@@ -110,6 +110,13 @@ form input[type="radio"] {
     }
 }
 
+.error{
+    color: red;
+    text-align: left;
+    margin-left: 10px;
+    font-size: 0.9rem;
+}
+
 .space{
     margin: 10px 10px;
 }
@@ -118,15 +125,4 @@ form input[type="radio"] {
     text-transform: capitalize;
 }
 
-.password1{
-    position: relative;
-
-    #closedeye1{
-    position: absolute;
-    cursor: pointer;
-    height: 1rem;
-    right: 4%;
-    top: 30%;
-    }
-}
     

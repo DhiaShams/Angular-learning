@@ -2,35 +2,51 @@
     <h1>E-Sign Gabon</h1>
     <h3>Enter your sign up credentials</h3>
 
-    <form>
+    <form formGroup="signupForm" (ngSubmit)="onSubmit()">
         <label for="fname">
             First Name:
         </label>
         <input type="text" id="fname" name="fname" placeholder="Enter your First Name" formControlName="fname"
-            class="capitalise">
+            class="capitalise" [(ngModel)]="signupObj.fname" >
+        <div *ngIf="submitted && f['fname'].errors" class="error">
+            <div *ngIf="f['fname'].errors['required']">{{ 'First Name is required'}}</div>
+            <div *ngIf="f['fname'].errors['pattern']">{{ 'Please enter a valid First Name'}}</div>
+        </div>
 
         <label for="lname">
             Last Name:
         </label>
         <input type="text" id="lname" name="lname" placeholder="Enter your Last Name" formControlName="lname"
-            class="capitalise">
+            class="capitalise" [(ngModel)]="signupObj.lname">
+        <div *ngIf="submitted && f['lname'].errors" class="error">
+            <div *ngIf="f['lname'].errors['required']">{{ 'Last Name is required'}}</div>
+            <div *ngIf="f['lname'].errors['pattern']">{{ 'Please enter a valid Last Name' }}</div>
+        </div>
 
         <label for="email">
             Email:
         </label>
-        <input type="email" id="email" name="email" placeholder="Enter your Email" formControlName="email">
+        <input type="email" id="email" name="email" placeholder="Enter your Email" formControlName="email" [(ngModel)]="signupObj.email">
+        <div *ngIf="submitted && f['email'].errors" class="error">
+            <div *ngIf="f['email'].errors['required']">{{ 'Email is required' }}</div>
+            <div *ngIf="f['email'].errors['pattern']">{{ 'Please enter a valid email' }}</div>
+        </div>
 
         <label for="phone">
             Phone:
         </label>
         <input type="tel" id="phone" name="phone" placeholder="Enter your Phone number" formControlName="phone"
-            maxlength="10">
+            maxlength="10" [(ngModel)]="signupObj.phone">
+        <div *ngIf="submitted && f['phone'].errors" class="error">
+            <div *ngIf="f['phone'].errors['required']">{{ 'Phone number is required' }}</div>
+            <div *ngIf="f['phone'].errors['pattern']">{{ 'Please enter a valid phone number' }}</div>
+        </div>
 
         <label for="gender">Gender:</label>
         <div class="gender-details">
-            <input type="radio" value="male" name="gender" id="dot-1" formControlName="gender">
-            <input type="radio" value="female" name="gender" id="dot-2" formControlName="gender">
-            <input type="radio" value="any" name="gender" id="dot-3" formControlName="gender">
+            <input type="radio" value="male" name="gender" id="dot-1" formControlName="gender" [(ngModel)]="signupObj.gender">
+            <input type="radio" value="female" name="gender" id="dot-2" formControlName="gender" [(ngModel)]="signupObj.gender">
+            <input type="radio" value="any" name="gender" id="dot-3" formControlName="gender" [(ngModel)]="signupObj.gender">
             <div class="category">
                 <label for="dot-1">
                     <span class="dot one"></span>
@@ -46,10 +62,13 @@
                 </label>
             </div>
         </div>
+        <div *ngIf="submitted && f['gender'].errors" class="space error">
+            <div *ngIf="f['gender'].errors['required']">{{ 'Gender is required' }}</div>
+        </div>
 
         <div class="country-group">
             <label for="country">Country:</label>
-            <select id="country" name="country" class="form-control" formControlName="country">
+            <select id="country" name="country" class="form-control" formControlName="country"  [(ngModel)]="signupObj.country">
                 <option value="Afghanistan">Afghanistan</option>
                 <option value="Australia">Australia</option>
                 <option value="Austria">Austria</option>
@@ -65,13 +84,22 @@
                 <option value="Zimbabwe">Zimbabwe</option>
             </select>
         </div>
+        <div *ngIf="submitted && f['country'].errors" class="space error">
+            <div>{{ 'Please select your country' }}</div>
+        </div>
 
         <label for="password">
             Password:
         </label>
         <div class="pwd password1">
-            <input type="password" id="password" name="password" placeholder="Enter your Password">
+            <input type="password" name="password" placeholder="Enter your Password"
+                formControlName="password" [(ngModel)]="signupObj.password">
+            </div>
+        <div *ngIf="submitted && f['password'].errors" class="error">
+            <div *ngIf="f['password'].errors['required']">{{ 'Password is required' }}</div>
+            <div *ngIf="f['password'].errors['pattern']">{{ 'A valid pattern should contain atleast one capital letter,one small letter,a digit, a special character and minimum of 8 characters' }}</div>
         </div>
+
         
             <label for="confirm">
                 Confirm Password:
@@ -79,11 +107,18 @@
         <div class="password1">
             <input type="password" id="confirm" name="confirm" placeholder="Enter your Password"
                 formControlName="confirm">
+           </div>
+        <div *ngIf="submitted && f['confirm'].errors" class="error">
+            <div *ngIf="f['confirm'].errors['required']">{{'Please confirm your password'}}</div>
         </div>
-        
+        <div *ngIf="submitted && signupForm.errors?.['passwordMismatch']" class="error">Passwords doesn't match</div>
+
         <div class="tac">
-            <input id="checkbox" type="checkbox">
+            <input id="checkbox" type="checkbox" formControlName="tac">
             <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
+        <div *ngIf="submitted && f['tac'].errors" class="error">
+            <div>{{ 'Please agree to the given conditions to continue' }}</div>
         </div>
 
         <div class="wrap">
@@ -94,6 +129,8 @@
     </form>
 
     <p>Already have an account?
-        <a href="#">Sign Up</a>
+        <a routerLink="/login">
+            Sign in
+        </a>
     </p>
 </div>
