@@ -22,8 +22,10 @@ export class Dashboard implements OnInit {
     this.state$ = this.activatedRoute.paramMap.pipe(
       map(() => window.history.state)
     );
+    console.log(this.state$);
+    
 
-    this.userData = history.state.user;
+    this.userData = history.state.User;
     console.log('User Data from state:', this.userData);
     this.getAllUsers();
     this.getAllComments();

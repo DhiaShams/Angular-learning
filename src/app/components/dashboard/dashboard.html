@@ -88,9 +88,13 @@
           <input type="search" placeholder="Search">
         </div>
       </div>
-      <div class="sign d-flex justify-content-between align-items-center">
+      <!-- <div class="sign d-flex justify-content-between align-items-center">
         <div class="fs-5 fw-semibold" id="sign">Signatures</div>
         <input type="text" placeholder="Add Signature" id="add">
+      </div> -->
+      <!-- After -->
+      <div class="sign">
+        <button type="button">Add Signature</button>
       </div>
       <div class="main">
         <img src="assets/images/Frame.png" alt="frame">
@@ -110,21 +114,17 @@
         </ul>
       </div>
 
-      <!-- api -->
-      <div class="card  p-5 user-card" *ngFor="let user of usersList">
+    </div>
+    <!-- api -->
+      <div class="card p-5 user-card" *ngFor="let user of usersList">
         <div>
-             <h6 class="m-0">{{user.id}}</h6>
+          <h6 class="m-0">{{user.id}}</h6>
           <p class="m-0"> {{user.title}} </p>
         </div>
         <div (click)="deleteUser(user.id)">
           <img src="assets/images/delete.png" alt="" class="img-fluid">
         </div>
-        
-       
       </div>
-
-
-    </div>
   </div>
 </div>
 <label for="sidebar-toggle" class="sidebar-overlay"></label>
