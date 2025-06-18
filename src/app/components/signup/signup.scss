@@ -125,4 +125,15 @@ form input[type="radio"] {
     text-transform: capitalize;
 }
 
+.password1{
+    position: relative;
+
+    #closedeye1{
+    position: absolute;
+    cursor: pointer;
+    height: 1rem;
+    right: 4%;
+    top: 30%;
+    }
+}
     

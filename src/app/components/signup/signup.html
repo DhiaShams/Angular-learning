@@ -2,7 +2,7 @@
     <h1>E-Sign Gabon</h1>
     <h3>Enter your sign up credentials</h3>
 
-    <form formGroup="signupForm" (ngSubmit)="onSubmit()">
+    <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
         <label for="fname">
             First Name:
         </label>
@@ -92,9 +92,10 @@
             Password:
         </label>
         <div class="pwd password1">
-            <input type="password" name="password" placeholder="Enter your Password"
+            <input [type]="showPassword ? 'text':'password'" id="password" name="password" placeholder="Enter your Password"
                 formControlName="password" [(ngModel)]="signupObj.password">
-            </div>
+            <img (click)="toggleShowPassword()" [src]="showPassword ?'assets/images/eye-crossed.png': 'assets/images/eye.png'" alt="eye" id="closedeye1">
+        </div>
         <div *ngIf="submitted && f['password'].errors" class="error">
             <div *ngIf="f['password'].errors['required']">{{ 'Password is required' }}</div>
             <div *ngIf="f['password'].errors['pattern']">{{ 'A valid pattern should contain atleast one capital letter,one small letter,a digit, a special character and minimum of 8 characters' }}</div>
@@ -105,9 +106,10 @@
                 Confirm Password:
             </label>
         <div class="password1">
-            <input type="password" id="confirm" name="confirm" placeholder="Enter your Password"
+            <input [type]="showConfirmPassword? 'text' : 'password'" id="confirm" name="confirm" placeholder="Enter your Password"
                 formControlName="confirm">
-           </div>
+            <img (click)="toggleConfirmPassword()" [src]="showConfirmPassword ? 'assets/images/eye-crossed.png' : 'assets/images/eye.png' " alt="eye" id="closedeye1">
+        </div>
         <div *ngIf="submitted && f['confirm'].errors" class="error">
             <div *ngIf="f['confirm'].errors['required']">{{'Please confirm your password'}}</div>
         </div>

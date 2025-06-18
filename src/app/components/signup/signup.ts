@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators} from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -11,6 +12,8 @@ import { FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class Signup implements OnInit {
   signupForm!: FormGroup;
   submitted = false;
+  showPassword = false;
+  showConfirmPassword = false;
   signupUsers: any[] = [];
   signupObj: any = {
     fname: '',
@@ -23,7 +26,8 @@ export class Signup implements OnInit {
   };
   response: any;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder, private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.signupForm = this.fb.group({
@@ -36,11 +40,22 @@ export class Signup implements OnInit {
       password: ['', [Validators.required, Validators.pattern('^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[@#$%^&-+=()])(?=\\S+$).{8,20}$')]],
       confirm: ['', [Validators.required]],
       tac: ['', [Validators.requiredTrue]]
-    });
+    }, { validator: this.passwordMatchValidator });
   }
 
   get f() {
     return this.signupForm.controls;
+  }
+
+
+  passwordMatchValidator(form: FormGroup) {
+    const password = form.get('password')?.value;
+    const confirm = form.get('confirm')?.value;
+
+    if (password != confirm) {
+      return { passwordMismatch: true };
+    }
+    return null;
   }
 
   onSubmit() {
@@ -52,6 +67,13 @@ export class Signup implements OnInit {
         return;
       }
 
+    }
+    toggleShowPassword() {
+      this.showPassword = !this.showPassword
+    }
+
+    toggleConfirmPassword() {
+      this.showConfirmPassword = !this.showConfirmPassword
     }
 
     onSignUp() {
