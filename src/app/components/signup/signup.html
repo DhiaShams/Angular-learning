@@ -1,0 +1,99 @@
+<div class="main">
+    <h1>E-Sign Gabon</h1>
+    <h3>Enter your sign up credentials</h3>
+
+    <form>
+        <label for="fname">
+            First Name:
+        </label>
+        <input type="text" id="fname" name="fname" placeholder="Enter your First Name" formControlName="fname"
+            class="capitalise">
+
+        <label for="lname">
+            Last Name:
+        </label>
+        <input type="text" id="lname" name="lname" placeholder="Enter your Last Name" formControlName="lname"
+            class="capitalise">
+
+        <label for="email">
+            Email:
+        </label>
+        <input type="email" id="email" name="email" placeholder="Enter your Email" formControlName="email">
+
+        <label for="phone">
+            Phone:
+        </label>
+        <input type="tel" id="phone" name="phone" placeholder="Enter your Phone number" formControlName="phone"
+            maxlength="10">
+
+        <label for="gender">Gender:</label>
+        <div class="gender-details">
+            <input type="radio" value="male" name="gender" id="dot-1" formControlName="gender">
+            <input type="radio" value="female" name="gender" id="dot-2" formControlName="gender">
+            <input type="radio" value="any" name="gender" id="dot-3" formControlName="gender">
+            <div class="category">
+                <label for="dot-1">
+                    <span class="dot one"></span>
+                    <span class="gender">Male</span>
+                </label>
+                <label for="dot-2">
+                    <span class="dot two"></span>
+                    <span class="gender">Female</span>
+                </label>
+                <label for="dot-3">
+                    <span class="dot three"></span>
+                    <span class="gender">Prefer not to say</span>
+                </label>
+            </div>
+        </div>
+
+        <div class="country-group">
+            <label for="country">Country:</label>
+            <select id="country" name="country" class="form-control" formControlName="country">
+                <option value="Afghanistan">Afghanistan</option>
+                <option value="Australia">Australia</option>
+                <option value="Austria">Austria</option>
+                <option value="Chile">Chile</option>
+                <option value="China">China</option>
+                <option value="Finland">Finland</option>
+                <option value="France">France</option>
+                <option value="Hungary">Hungary</option>
+                <option value="Iceland">Iceland</option>
+                <option value="India">India</option>
+                <option value="Indonesia">Indonesia</option>
+                <option value="Zambia">Zambia</option>
+                <option value="Zimbabwe">Zimbabwe</option>
+            </select>
+        </div>
+
+        <label for="password">
+            Password:
+        </label>
+        <div class="pwd password1">
+            <input type="password" id="password" name="password" placeholder="Enter your Password">
+        </div>
+        
+            <label for="confirm">
+                Confirm Password:
+            </label>
+        <div class="password1">
+            <input type="password" id="confirm" name="confirm" placeholder="Enter your Password"
+                formControlName="confirm">
+        </div>
+        
+        <div class="tac">
+            <input id="checkbox" type="checkbox">
+            <label for="checkbox"> I agree to these <a href="#">Terms and Conditions</a>.</label>
+        </div>
+
+        <div class="wrap">
+            <button type="submit">
+                Submit
+            </button>
+        </div>
+    </form>
+
+    <p>Already have an account?
+        <a href="#">Sign Up</a>
+    </p>
+</div>
