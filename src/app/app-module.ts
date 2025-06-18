@@ -8,13 +8,15 @@ import { Signup } from './components/signup/signup';
 import { Login } from './components/login/login';
 import { Dashboard } from './components/dashboard/dashboard';
 import { HttpClientModule } from '@angular/common/http';
+import { Employees } from './components/employees/employees';
 
 @NgModule({
   declarations: [
     App,
     Signup,
     Login,
-    Dashboard
+    Dashboard,
+    Employees
   ],
   imports: [
     BrowserModule,
