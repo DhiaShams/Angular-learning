@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { map, Observable } from 'rxjs';
-import { ApiService } from '../../services/api';
+import { ApiService } from '../../_service/api';
 
 @Component({
   selector: 'app-dashboard',
@@ -73,5 +73,12 @@ export class Dashboard implements OnInit {
     })
 
   }*/
+  deleteUser(userId: any) {
+    console.log(userId, 'userId');
+    this.Api.deleteUser(userId).subscribe(data => {
+      console.log(data, 'hgugg');
+      this.usersList = this.usersList.filter((usersList:any) => usersList.id !== userId);
+    })
+  }
 }
 

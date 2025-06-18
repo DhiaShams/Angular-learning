@@ -116,6 +116,10 @@
              <h6 class="m-0">{{user.id}}</h6>
           <p class="m-0"> {{user.title}} </p>
         </div>
+        <div (click)="deleteUser(user.id)">
+          <img src="assets/images/delete.png" alt="" class="img-fluid">
+        </div>
+        
        
       </div>
 

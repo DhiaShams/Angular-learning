@@ -19,6 +19,19 @@ export class ApiService {
     return this.https.get(`${this.apiUrl}/comments`);
   }
 
+  //in header
+  /*getUserUsingIdInHeader(id: any): Observable<any> {
+    const headers = new HttpHeaders({
+      userId: id
+    });
+    return this.https.get(`${this.apiUrl}/posts`, { headers });
+  }
+
+  //in path
+  getUserUsingIdInPath(id: any): Observable<any> {
+    return this.https.get(`${this.apiUrl}/posts/`+id);
+  }*/
+
   //post api
   signUp(data: any): Observable<any> {
     return this.https.post(`${this.apiUrl}/users`, data);

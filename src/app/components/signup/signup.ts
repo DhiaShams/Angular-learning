@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ApiService } from '../../services/api';
+import { ApiService } from '../../_service/api';
 
 @Component({
   selector: 'app-signup',
@@ -10,7 +10,7 @@ import { ApiService } from '../../services/api';
   styleUrl: './signup.scss'
 })
 
-export class Signup implements OnInit{
+export class Signup implements OnInit {
   signupForm!: FormGroup;
   submitted = false;
   showPassword = false;

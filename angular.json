@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "work4": {
+    "my-angular-app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -69,10 +69,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "work4:build:production"
+              "buildTarget": "my-angular-app:build:production"
             },
             "development": {
-              "buildTarget": "work4:build:development"
+              "buildTarget": "my-angular-app:build:development"
             }
           },
           "defaultConfiguration": "development"
