@@ -4,6 +4,7 @@ import { Signup } from './components/signup/signup';
 import { Login } from './components/login/login';
 import { Dashboard } from './components/dashboard/dashboard';
 import { Employees } from './components/employees/employees';
+import { Layout } from './components/layout/layout';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'list',component:Employees
+  },
+  {
+    path:'layout',component:Layout
   }
 ];
 

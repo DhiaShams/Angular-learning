@@ -9,6 +9,7 @@ import { Login } from './components/login/login';
 import { Dashboard } from './components/dashboard/dashboard';
 import { HttpClientModule } from '@angular/common/http';
 import { Employees } from './components/employees/employees';
+import { Layout } from './components/layout/layout';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { Employees } from './components/employees/employees';
     Signup,
     Login,
     Dashboard,
-    Employees
+    Employees,
+    Layout
   ],
   imports: [
     BrowserModule,
