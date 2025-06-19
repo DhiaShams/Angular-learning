@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+declare var $: any;
 @Component({
   selector: 'app-employees',
   standalone: false,
@@ -16,6 +17,7 @@ export class Employees {
 
   editEmployee(emp: any) {
     console.log('Editing', emp);
+    $("#form-modal").modal('show');
   }
 
   deleteEmployee(emp:any) {
