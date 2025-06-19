@@ -23,7 +23,7 @@ export class Employees {
     shift: ''
   };
   response: any;
-  formMode: 'add' | 'edit' = 'add';
+  formMode: any;
 
 
   constructor(private fb: FormBuilder, private router: Router) { }
@@ -44,7 +44,6 @@ export class Employees {
   get f() {
     return this.employeeForm.controls;
   }
-
 
   //employees : any[] = [];
   employees = [
@@ -71,7 +70,7 @@ export class Employees {
       return;
     }
   }
-  setFormMode(mode: 'add' | 'edit') {
+  setFormMode(mode:any) {
     this.formMode = mode;
   }
 
