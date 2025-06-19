@@ -54,16 +54,16 @@ export class Employees {
 
   editEmployee(emp: any) {
     console.log('Editing', emp);
-    $("#form-modal").modal('show');
     this.employeeForm.patchValue({
-    name: emp.name,
-    designation: emp.designation,
-    date: emp.date,
-    age: emp.age,
-    gender: emp.gender,
-    salary: emp.salary,
-    shift: emp.shift
-  });
+      name: emp.name,
+      designation: emp.designation,
+      date: emp.date,
+      age: emp.age,
+      gender: emp.gender,
+      salary: emp.salary,
+      shift: emp.shift
+    });
+    $("#form-modal").modal('show');
   }
 
   deleteEmployee(emp: any) {
@@ -79,7 +79,7 @@ export class Employees {
       return;
     }
   }
-  setFormMode(mode:any) {
+  setFormMode(mode: any) {
     this.formMode = mode;
   }
 
