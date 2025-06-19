@@ -2,7 +2,8 @@
     <div class="top d-flex justify-content-between">
         <h1>Employee List</h1>
         <section>
-            <button class="add" data-bs-toggle="modal" data-bs-target="#form-modal">Add Employee</button>
+            <button class="add" data-bs-toggle="modal" data-bs-target="#form-modal" (click)="setFormMode('add')">Add
+                Employee</button>
         </section>
     </div>
 
@@ -32,7 +33,7 @@
                 <td>{{ employee.salary}}</td>
                 <td>{{ employee.shift}}</td>
                 <td class="action-buttons">
-                    <button (click)="editEmployee(employee)" class="edit">
+                    <button (click)="editEmployee(employee)" class="edit" (click)="setFormMode('edit')">
                         <img src="assets/images/edit.png" alt="">
                     </button>
 
@@ -42,7 +43,9 @@
                         <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content add-modal">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="modal-title">Edit employee details</h5>
+                                    <h5 class="modal-title" id="modal-title">
+                                        {{ formMode === 'add' ? 'Add Employee Details' : 'Edit Employee Details' }}
+                                    </h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -101,7 +104,7 @@
                                             </div>
                                             <div *ngIf="f['age'].errors['pattern']">{{ 'Please enter a valid age' }}
                                             </div>
-                                              <div *ngIf="f['age'].errors['min']">Age must be at least 18</div>
+                                            <div *ngIf="f['age'].errors['min']">Age must be at least 18</div>
                                         </div>
 
                                         <!-- Gender field in your modal form -->
@@ -158,10 +161,10 @@
                                             <div>{{ 'Please select your shift' }}</div>
                                         </div>
                                         <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary"
-                                        data-bs-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-success">Save changes</button>
-                                </div>
+                                            <button type="button" class="btn btn-secondary"
+                                                data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success">Save changes</button>
+                                        </div>
                                     </form>
                                 </div>
                             </div>

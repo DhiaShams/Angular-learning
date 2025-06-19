@@ -23,6 +23,8 @@ export class Employees {
     shift: ''
   };
   response: any;
+  formMode: 'add' | 'edit' = 'add';
+
 
   constructor(private fb: FormBuilder, private router: Router) { }
 
@@ -31,10 +33,10 @@ export class Employees {
       name: ['', [Validators.required, Validators.pattern('^[^\\s]+.*')]],
       designation: ['', [Validators.required]],
       date: ['', [Validators.required]],
-      age: ['', [Validators.required,Validators.pattern('^[0-9]+$'), Validators.min(18) ]],
+      age: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(18)]],
       gender: ['male', [Validators.required]],
       shift: ['', [Validators.required]],
-      salary: ['', [Validators.required,Validators.pattern('^[0-9]+$'), Validators.min(1000)]]
+      salary: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1000)]]
     });
 
   }
@@ -68,8 +70,11 @@ export class Employees {
     else {
       return;
     }
-
   }
+  setFormMode(mode: 'add' | 'edit') {
+    this.formMode = mode;
+  }
+
 }
 
 
