@@ -45,6 +45,7 @@ export class ApiService {
       return this.https.get(this.apiUrl2);
   }
   addEmployee(data:any){
-    
+    return this.https.post(this.apiUrl2,data)
   }
+  
 }

@@ -74,6 +74,15 @@ export class Employees {
     else {
       return;
     }
+    const data={
+      ...this.employeeForm.value
+    }
+    this.Api.addEmployee(data).subscribe(data=>{
+      console.log(data);
+         $("#form-modal").modal('hide');
+          this.getEmployeeList();
+      
+    })
   }
   setFormMode(mode: any) {
     this.formMode = mode;
@@ -84,7 +93,6 @@ export class Employees {
       this.response = data ;
       console.log(this.response,'data');
       this.employeeList = this.response;
-      
     })
   }
 
