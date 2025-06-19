@@ -47,14 +47,23 @@ export class Employees {
 
   //employees : any[] = [];
   employees = [
-    { name: 'Maria', designation: 'trainee', salary: '10,000', date: '25-10-2024', age: '23', shift: '8-6', gender: 'Female' }
-    //{name:'Peter',designation:'manager',salary:'30,000'}
+    { name: 'Maria', designation: 'Intern', salary: '1000', date: '', age: '23', shift: '6pm-8am', gender: 'Female' },
+    { name: 'Peter', designation: 'Junior Developer', salary: '15000', date: '', age: '25', shift: '9am-8pm', gender: 'Male' }
   ];
   public visible = false;
 
   editEmployee(emp: any) {
     console.log('Editing', emp);
     $("#form-modal").modal('show');
+    this.employeeForm.patchValue({
+    name: emp.name,
+    designation: emp.designation,
+    date: emp.date,
+    age: emp.age,
+    gender: emp.gender,
+    salary: emp.salary,
+    shift: emp.shift
+  });
   }
 
   deleteEmployee(emp: any) {
