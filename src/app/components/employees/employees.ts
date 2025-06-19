@@ -31,11 +31,12 @@ export class Employees {
       name: ['', [Validators.required, Validators.pattern('^[^\\s]+.*')]],
       designation: ['', [Validators.required]],
       date: ['', [Validators.required]],
-      age: ['', [Validators.required, Validators.pattern('^[0-9]{2,}$')]],
+      age: ['', [Validators.required,Validators.pattern('^[0-9]+$'), Validators.min(18) ]],
       gender: ['male', [Validators.required]],
       shift: ['', [Validators.required]],
-      salary: ['', [Validators.required]]
+      salary: ['', [Validators.required,Validators.pattern('^[0-9]+$'), Validators.min(1000)]]
     });
+
   }
 
   get f() {
