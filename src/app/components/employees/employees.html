@@ -172,8 +172,8 @@
                     </div>
 
                 </td>
-                <td class="action-buttons" (click)="deleteEmployee(employee)">
-                    <button data-bs-toggle="modal" data-bs-target="#delete-modal" class="bin">
+                <td class="action-buttons" (click)="deleteModal(employee)">
+                    <button class="bin">
                         <img src="assets/images/bin.png" alt="">
                     </button>
 
@@ -193,7 +193,7 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-danger">Delete</button>
+                                    <button type="button" (click)="deleteEmployee()" class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>

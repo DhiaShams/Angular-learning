@@ -1,9 +1,0 @@
-{
-  "status": "200",
-  "results": [
-    { "name": "Maria", "designation": "Trainee", "salary": "10000", "date": "25-02-2025", "age": "23", "shift": "8am-6pm", "gender": "Female" },
-    { "name": "Steve Robin", "designation": "Intern", "salary": "1000", "date": "02-05-2025", "age": "21", "shift": "9am-8pm", "gender": "Male" },
-    { "name": "Elizabeth John", "designation": "Team Lead", "salary": "50000", "date": "17-10-2023", "age": "26", "shift": "9am-8pm", "gender": "Female" },
-    { "name": "Christopher", "designation": "Junior Developer", "salary": "20000", "date": "12-08-2024", "age": "24", "shift": "8am-6pm", "gender": "Male" }
-  ]
-}

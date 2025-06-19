@@ -47,5 +47,8 @@ export class ApiService {
   addEmployee(data:any){
     return this.https.post(this.apiUrl2,data)
   }
+  deleteEmployee(id:any){
+    return this.https.delete(`${this.apiUrl2}/${id}`)
+  }
   
 }

@@ -15,6 +15,7 @@ export class Employees {
   employeeForm!: FormGroup;
   submitted = false;
   employeeList: any;
+  employeeId : any;
   employeeObj: any = {
     name: '',
     designation: '',
@@ -62,8 +63,19 @@ export class Employees {
     $("#form-modal").modal('show');
   }
 
-  deleteEmployee(emp: any) {
+  deleteModal(emp: any) {
     console.log('Deleting', emp)
+    this.employeeId = emp.id;
+    $("#delete-modal").modal('show');
+  }
+
+  deleteEmployee(){
+    console.log(' this.employeeId', this.employeeId);
+    this.Api.deleteEmployee(this.employeeId).subscribe(data=>{
+      this.getEmployeeList();
+        $("#delete-modal").modal('hide');
+    })
+    
   }
 
   onClick() {
