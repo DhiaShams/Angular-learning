@@ -15,9 +15,10 @@
                 <th>Designation</th>
                 <th>Joining Date</th>
                 <th>Age</th>
-                <th>Gender</th>
                 <th>Salary</th>
                 <th>Shift</th>
+                <th>Phone</th>
+                <th>Gender</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -33,14 +34,14 @@
                 <td>{{ employee.salary}}</td>
                 <td>{{ employee.shift}}</td>
                 <td class="action-buttons">
-                    <button (click)="editEmployee(employee)" class="edit" (click)="setFormMode('edit')">
+                    <button (click)="editModal(employee)" class="edit" (click)="setFormMode('edit')">
                         <img src="assets/images/edit.png" alt="">
                     </button>
 
                     <!-- Modal -->
                     <div class="modal fade" id="form-modal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
                             <div class="modal-content add-modal">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="modal-title">
@@ -51,116 +52,121 @@
                                 </div>
                                 <div class="modal-body">
                                     <form [formGroup]="employeeForm" (ngSubmit)="onClick()">
-                                        <div class="mb-3">
-                                            <label for="name" class="form-label">Name:</label>
-                                            <input type="text" class="form-control" id="name"
-                                                placeholder="Enter your name" formControlName="name"
-                                                [(ngModel)]="employeeObj.name">
-                                        </div>
-                                        <div *ngIf="submitted && f['name'].errors" class="space error">
-                                            <div *ngIf="f['name'].errors['required']">{{ 'Name is required'}}
+                                        <div class="form-section">
+                                            <div class="mb-3">
+                                                <label for="name" class="form-label">Name:</label>
+                                                <input type="text" class="form-control" id="name"
+                                                    placeholder="Enter your name" formControlName="name"
+                                                    [(ngModel)]="employeeObj.name">
                                             </div>
-                                            <div *ngIf="f['name'].errors['pattern']">{{ 'Please enter a valid Name'}}
+                                            <div *ngIf="submitted && f['name'].errors" class="space error">
+                                                <div *ngIf="f['name'].errors['required']">{{ 'Name is required'}}
+                                                </div>
+                                                <div *ngIf="f['name'].errors['pattern']">{{ 'Please enter a valid Name'}}
+                                                </div>
                                             </div>
-                                        </div>
 
-                                        <div class="mb-3">
-                                            <label for="designation" class="form-label">Designation:</label>
-                                            <select class="form-control" id="designation" formControlName="designation"
-                                                [(ngModel)]="employeeObj.designation">
-                                                <option value="" disabled selected>Select designation</option>
-                                                <option value="Intern">Intern</option>
-                                                <option value="Trainee">Trainee</option>
-                                                <option value="Junior Developer">Junior Developer</option>
-                                                <option value="Senior Developer">Senior Developer</option>
-                                                <option value="Team Lead">Team Lead</option>
-                                                <option value="Manager">Manager</option>
-                                                <option value="HR">HR</option>
-                                                <option value="CEO">CEO</option>
-                                            </select>
-                                        </div>
-                                        <div *ngIf="submitted && f['designation'].errors" class="space error">
-                                            <div>{{ 'Please select your designation' }}</div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="date" class="form-label">Joining Date:</label>
-                                            <input type="date" class="form-control" id="date"
-                                                placeholder="Enter your date of joining" formControlName="date"
-                                                [(ngModel)]="employeeObj.date">
-                                        </div>
-                                        <div *ngIf="submitted && f['date'].errors" class="space error">
-                                            <div>{{ 'Please select your joining date' }}</div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="age" class="form-label">Age:</label>
-                                            <input type="number" class="form-control" id="age"
-                                                placeholder="Enter your age" formControlName="age"
-                                                [(ngModel)]="employeeObj.age">
-                                        </div>
-                                        <div *ngIf="submitted && f['age'].errors" class="space error">
-                                            <div *ngIf="f['age'].errors['required']">{{ 'Age is required' }}
+                                            <div class="mb-3">
+                                                <label for="designation" class="form-label">Designation:</label>
+                                                <select class="form-control" id="designation"
+                                                    formControlName="designation" [(ngModel)]="employeeObj.designation">
+                                                    <option value="" disabled selected>Select designation</option>
+                                                    <option value="Intern">Intern</option>
+                                                    <option value="Trainee">Trainee</option>
+                                                    <option value="Junior Developer">Junior Developer</option>
+                                                    <option value="Senior Developer">Senior Developer</option>
+                                                    <option value="Team Lead">Team Lead</option>
+                                                    <option value="Manager">Manager</option>
+                                                    <option value="HR">HR</option>
+                                                    <option value="CEO">CEO</option>
+                                                </select>
                                             </div>
-                                            <div *ngIf="f['age'].errors['pattern']">{{ 'Please enter a valid age' }}
+                                            <div *ngIf="submitted && f['designation'].errors" class="space error">
+                                                <div>{{ 'Please select your designation' }}</div>
                                             </div>
-                                            <div *ngIf="f['age'].errors['min']">Age must be at least 18</div>
-                                        </div>
 
-                                        <!-- Gender field in your modal form -->
-                                        <div class="form-group">
-                                            <label>Gender:</label>
-                                            <div>
-                                                <label>
-                                                    <input type="radio" name="gender" value="Male"
-                                                        formControlName="gender" [(ngModel)]="employeeObj.gender">
-                                                    Male
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="gender" value="Female"
-                                                        formControlName="gender" [(ngModel)]="employeeObj.gender">
-                                                    Female
-                                                </label>
-                                                <label>
-                                                    <input type="radio" name="gender" value="Other"
-                                                        formControlName="gender" [(ngModel)]="employeeObj.gender">
-                                                    Other
-                                                </label>
+                                            <div class="mb-3">
+                                                <label for="date" class="form-label">Joining Date:</label>
+                                                <input type="date" class="form-control" id="date"
+                                                    placeholder="Enter your date of joining" formControlName="date"
+                                                    [(ngModel)]="employeeObj.date">
                                             </div>
-                                        </div>
-                                        <div *ngIf="submitted && f['gender'].errors" class="space error">
-                                            <div *ngIf="f['gender'].errors['required']">{{ 'Gender is required' }}</div>
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="salary" class="form-label">Salary:</label>
-                                            <input type="number" class="form-control" id="salary"
-                                                placeholder="Enter your salary" formControlName="salary"
-                                                [(ngModel)]="employeeObj.salary">
-                                        </div>
-                                        <div *ngIf="submitted && f['salary'].errors" class="space error">
-                                            <div *ngIf="f['salary'].errors['required']">{{ 'Salary is required' }}
+                                            <div *ngIf="submitted && f['date'].errors" class="space error">
+                                                <div>{{ 'Please select your joining date' }}</div>
                                             </div>
-                                            <div *ngIf="f['salary'].errors['pattern']">{{ 'Please enter a valid salary'
-                                                }}</div>
-                                            <div *ngIf="f['salary'].errors['min']">Salary must be at least 1000</div>
-                                        </div>
 
-                                        <div class="mb-3">
-                                            <label for="shift" class="form-label">Shift:</label>
-                                            <select class="form-control" id="shift" formControlName="shift"
-                                                [(ngModel)]="employeeObj.shift">
-                                                <option value="" disabled selected>Select shift</option>
-                                                <option value="8am-6pm">8am-6pm</option>
-                                                <option value="9am-8pm">9am-8pm</option>
-                                                <option value="6pm-8am">6pm-8am</option>
-                                                <option value="8pm-9am">8pm-9am</option>
-                                            </select>
+                                            <div class="mb-3">
+                                                <label for="age" class="form-label">Age:</label>
+                                                <input type="number" class="form-control" id="age"
+                                                    placeholder="Enter your age" formControlName="age"
+                                                    [(ngModel)]="employeeObj.age">
+                                            </div>
+                                            <div *ngIf="submitted && f['age'].errors" class="space error">
+                                                <div *ngIf="f['age'].errors['required']">{{ 'Age is required' }}
+                                                </div>
+                                                <div *ngIf="f['age'].errors['pattern']">{{ 'Please enter a valid age' }}
+                                                </div>
+                                                <div *ngIf="f['age'].errors['min']">Age must be at least 18</div>
+                                            </div>
+
+                                            <!-- Gender field in your modal form -->
+                                            <div class="form-group">
+                                                <label>Gender:</label>
+                                                <div>
+                                                    <label>
+                                                        <input type="radio" name="gender" value="Male"
+                                                            formControlName="gender" [(ngModel)]="employeeObj.gender">
+                                                        Male
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="gender" value="Female"
+                                                            formControlName="gender" [(ngModel)]="employeeObj.gender">
+                                                        Female
+                                                    </label>
+                                                    <label>
+                                                        <input type="radio" name="gender" value="Other"
+                                                            formControlName="gender" [(ngModel)]="employeeObj.gender">
+                                                        Other
+                                                    </label>
+                                                </div>
+                                            </div>
+                                            <div *ngIf="submitted && f['gender'].errors" class="space error">
+                                                <div *ngIf="f['gender'].errors['required']">{{ 'Gender is required' }}
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="salary" class="form-label">Salary:</label>
+                                                <input type="number" class="form-control" id="salary"
+                                                    placeholder="Enter your salary" formControlName="salary"
+                                                    [(ngModel)]="employeeObj.salary">
+                                            </div>
+                                            <div *ngIf="submitted && f['salary'].errors" class="space error">
+                                                <div *ngIf="f['salary'].errors['required']">{{ 'Salary is required' }}
+                                                </div>
+                                                <div *ngIf="f['salary'].errors['pattern']">{{ 'Please enter a valid salary'
+                                                    }}</div>
+                                                <div *ngIf="f['salary'].errors['min']">Salary must be at least 1000
+                                                </div>
+                                            </div>
+
+                                            <div class="mb-3">
+                                                <label for="shift" class="form-label">Shift:</label>
+                                                <select class="form-control" id="shift" formControlName="shift"
+                                                    [(ngModel)]="employeeObj.shift">
+                                                    <option value="" disabled selected>Select shift</option>
+                                                    <option value="8am-6pm">8am-6pm</option>
+                                                    <option value="9am-8pm">9am-8pm</option>
+                                                    <option value="6pm-8am">6pm-8am</option>
+                                                    <option value="8pm-9am">8pm-9am</option>
+                                                </select>
+                                            </div>
+                                            <div *ngIf="submitted && f['shift'].errors" class="space error">
+                                                <div>{{ 'Please select your shift' }}</div>
+                                            </div>
+
                                         </div>
-                                        <div *ngIf="submitted && f['shift'].errors" class="space error">
-                                            <div>{{ 'Please select your shift' }}</div>
-                                        </div>
-                                        <div class="modal-footer">
+                                        <div class="d-flex justify-content-center align-items-center gap-2">
                                             <button type="button" class="btn btn-secondary"
                                                 data-bs-dismiss="modal">Close</button>
                                             <button type="submit" class="btn btn-success">Save changes</button>
@@ -193,7 +199,8 @@
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Close</button>
-                                    <button type="button" (click)="deleteEmployee()" class="btn btn-danger">Delete</button>
+                                    <button type="button" (click)="deleteEmployee()"
+                                        class="btn btn-danger">Delete</button>
                                 </div>
                             </div>
                         </div>

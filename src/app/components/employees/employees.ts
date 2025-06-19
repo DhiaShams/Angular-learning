@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../_service/api';
+import { id } from 'date-fns/locale';
 declare var $: any;
 @Component({
   selector: 'app-employees',
@@ -27,6 +28,7 @@ export class Employees {
   };
   response: any;
   formMode: any;
+  editMode = false;
 
 
   constructor(private fb: FormBuilder, private router: Router, private Api: ApiService) { }
@@ -49,8 +51,10 @@ export class Employees {
   }
   public visible = false;
 
-  editEmployee(emp: any) {
+  editModal(emp: any) {
+    this.editMode = true;
     console.log('Editing', emp);
+    this.employeeId = emp.id;
     this.employeeForm.patchValue({
       name: emp.name,
       designation: emp.designation,
@@ -71,9 +75,9 @@ export class Employees {
 
   deleteEmployee() {
     console.log(' this.employeeId', this.employeeId);
-    this.Api.deleteEmployee(this.employeeId).subscribe(data => {
-      $("#delete-modal").modal('hide');
+    this.Api.deleteEmployee(this.employeeId).subscribe(() => {
       this.getEmployeeList();
+      $("#delete-modal").modal('hide');
     })
 
   }
@@ -86,15 +90,33 @@ export class Employees {
     else {
       return;
     }
-    const data = {
-      ...this.employeeForm.value
-    }
-    this.Api.addEmployee(data).subscribe(data => {
-      console.log(data);
-      $("#form-modal").modal('hide');
-      this.getEmployeeList();
+    if (this.editMode && this.employeeId != null) {
+      console.log('edit');
+      
+      const data = {
+        ...this.employeeForm.value
+      }
+      this.Api.editEmployee(this.employeeId, data).subscribe(data => {
+        console.log(' this.employeeId', this.employeeId);
+        this.Api.editEmployee(this.employeeId, data).subscribe(data => {
+          $("#form-modal").modal('hide');
+          this.getEmployeeList();
+        })
+      })
 
-    })
+    } else {
+      console.log('add');
+      
+      const data = {
+        ...this.employeeForm.value
+      }
+      this.Api.addEmployee(data).subscribe(data => {
+        console.log(data);
+        $("#form-modal").modal('hide');
+        this.getEmployeeList();
+      })
+    }
+
   }
   setFormMode(mode: any) {
     this.formMode = mode;
@@ -109,6 +131,9 @@ export class Employees {
   }
 
 }
+
+
+
 
 
 

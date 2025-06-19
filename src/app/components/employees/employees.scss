@@ -151,8 +151,7 @@
     }
 }
 
-.modal-footer {
-    .btn-success {
+  .btn-success {
         background-color: #8cc63f;
         border: none;
 
@@ -160,4 +159,9 @@
             background-color: #7bb133;
         }
     }
+.form-section{
+        display: grid
+;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0px 20px;
 }

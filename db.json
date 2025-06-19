@@ -1,40 +1,24 @@
 {
   "employees": [
     {
-      "name": "Diya",
-      "designation": "trainee",
-      "salary": "10000",
-      "date": "25-02-2025",
-      "age": "23",
-      "shift": "8am-6pm",
-      "gender": "Female"
-    },
-    {
-      "name": "Steve Robin",
-      "designation": "intern",
-      "salary": "1000",
-      "date": "02-05-2025",
-      "age": "21",
-      "shift": "9am-8pm",
-      "gender": "Male"
-    },
-    {
-      "name": "Elizabeth John",
+      "id": "8234",
+      "name": "Arjun Raj",
       "designation": "Team Lead",
-      "salary": "50000",
-      "date": "17-10-2023",
-      "age": "26",
+      "date": "2024-01-04",
+      "age": 23,
+      "gender": "Male",
       "shift": "9am-8pm",
-      "gender": "Female"
+      "salary": 40000
     },
     {
-      "name": "Christopher",
-      "designation": "Junior Developer",
-      "salary": "20000",
-      "date": "12-08-2024",
-      "age": "24",
-      "shift": "8am-6pm",
-      "gender": "Male"
+      "id": "dd1e",
+      "name": "Aman Gupta",
+      "designation": "Manager",
+      "date": "2025-06-03",
+      "age": 40,
+      "gender": "Male",
+      "shift": "6pm-8am",
+      "salary": 39997
     }
   ]
 }
