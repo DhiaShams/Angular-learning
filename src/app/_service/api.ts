@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 
 export class ApiService {
   private apiUrl = 'https://jsonplaceholder.typicode.com';
+  private apiUrl2 = 'http://localhost:3000/employees'
   constructor(private https: HttpClient) { }
 
   //get api
@@ -39,5 +40,11 @@ export class ApiService {
 
     deleteUser(userId: any): Observable<any> {
     return this.https.delete(`${this.apiUrl}/posts/${userId}`);
+  }
+  getEmployeeList(){
+      return this.https.get(this.apiUrl2);
+  }
+  addEmployee(data:any){
+    
   }
 }

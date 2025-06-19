@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from '../../_service/api';
 declare var $: any;
 @Component({
   selector: 'app-employees',
@@ -13,6 +14,7 @@ export class Employees {
 
   employeeForm!: FormGroup;
   submitted = false;
+  employeeList: any;
   employeeObj: any = {
     name: '',
     designation: '',
@@ -26,7 +28,7 @@ export class Employees {
   formMode: any;
 
 
-  constructor(private fb: FormBuilder, private router: Router) { }
+  constructor(private fb: FormBuilder, private router: Router,private Api: ApiService) { }
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
@@ -38,18 +40,12 @@ export class Employees {
       shift: ['', [Validators.required]],
       salary: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1000)]]
     });
-
+    this.getEmployeeList();
   }
 
   get f() {
     return this.employeeForm.controls;
   }
-
-  //employees : any[] = [];
-  employees = [
-    { name: 'Maria', designation: 'Intern', salary: '1000', date: '', age: '23', shift: '6pm-8am', gender: 'Female' },
-    { name: 'Peter', designation: 'Junior Developer', salary: '15000', date: '', age: '25', shift: '9am-8pm', gender: 'Male' }
-  ];
   public visible = false;
 
   editEmployee(emp: any) {
@@ -82,7 +78,14 @@ export class Employees {
   setFormMode(mode: any) {
     this.formMode = mode;
     this.submitted=false;
-    this.employeeForm.reset();
+  }
+  getEmployeeList(){
+    this.Api.getEmployeeList().subscribe(data=>{
+      this.response = data ;
+      console.log(this.response,'data');
+      this.employeeList = this.response;
+      
+    })
   }
 
 }
