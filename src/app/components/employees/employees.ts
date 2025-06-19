@@ -24,7 +24,8 @@ export class Employees {
     age: '',
     gender: '',
     salary: '',
-    shift: ''
+    shift: '',
+    phone: ''
   };
   response: any;
   formMode: any;
@@ -41,6 +42,7 @@ export class Employees {
       age: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(18)]],
       gender: ['male', [Validators.required]],
       shift: ['', [Validators.required]],
+      phone: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       salary: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(1000)]]
     });
     this.getEmployeeList();
@@ -62,7 +64,8 @@ export class Employees {
       age: emp.age,
       gender: emp.gender,
       salary: emp.salary,
-      shift: emp.shift
+      shift: emp.shift,
+      phone:emp.phone
     });
     $("#form-modal").modal('show');
   }
