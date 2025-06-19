@@ -15,7 +15,7 @@ export class Employees {
   employeeForm!: FormGroup;
   submitted = false;
   employeeList: any;
-  employeeId : any;
+  employeeId: any;
   employeeObj: any = {
     name: '',
     designation: '',
@@ -29,7 +29,7 @@ export class Employees {
   formMode: any;
 
 
-  constructor(private fb: FormBuilder, private router: Router,private Api: ApiService) { }
+  constructor(private fb: FormBuilder, private router: Router, private Api: ApiService) { }
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
@@ -69,13 +69,13 @@ export class Employees {
     $("#delete-modal").modal('show');
   }
 
-  deleteEmployee(){
+  deleteEmployee() {
     console.log(' this.employeeId', this.employeeId);
-    this.Api.deleteEmployee(this.employeeId).subscribe(data=>{
+    this.Api.deleteEmployee(this.employeeId).subscribe(data => {
+      $("#delete-modal").modal('hide');
       this.getEmployeeList();
-        $("#delete-modal").modal('hide');
     })
-    
+
   }
 
   onClick() {
@@ -86,24 +86,24 @@ export class Employees {
     else {
       return;
     }
-    const data={
+    const data = {
       ...this.employeeForm.value
     }
-    this.Api.addEmployee(data).subscribe(data=>{
+    this.Api.addEmployee(data).subscribe(data => {
       console.log(data);
-         $("#form-modal").modal('hide');
-          this.getEmployeeList();
-      
+      $("#form-modal").modal('hide');
+      this.getEmployeeList();
+
     })
   }
   setFormMode(mode: any) {
     this.formMode = mode;
-    this.submitted=false;
+    this.submitted = false;
   }
-  getEmployeeList(){
-    this.Api.getEmployeeList().subscribe(data=>{
-      this.response = data ;
-      console.log(this.response,'data');
+  getEmployeeList() {
+    this.Api.getEmployeeList().subscribe(data => {
+      this.response = data;
+      console.log(this.response, 'data');
       this.employeeList = this.response;
     })
   }
