@@ -81,8 +81,14 @@ export class Employees {
   }
   setFormMode(mode: any) {
     this.formMode = mode;
+    this.submitted=false;
+    this.employeeForm.reset();
   }
 
 }
+
+
+
+
 
 

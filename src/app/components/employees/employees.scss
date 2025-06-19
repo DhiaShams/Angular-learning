@@ -83,7 +83,7 @@
 .modal-content {
     background: #fff;
     padding: 2rem;
-    border-radius: 12px;
+    border-radius: 2rem;
     width: 50rem;
     margin: auto;
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
@@ -101,9 +101,6 @@
 
 .modal-body {
     form {
-        display: flex;
-        flex-direction: column;
-
         .error {
             color: red;
             font-size: 0.8rem;
@@ -130,11 +127,6 @@
                 border: 1px solid #ccc;
                 border-radius: 6px;
                 font-size: 14px;
-
-                &:focus {
-                    outline: none;
-                    border-color: #8cc63f;
-                }
             }
         }
 
@@ -160,25 +152,12 @@
 }
 
 .modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 1rem;
-
-    .btn {
-        padding: 0.4rem 0.6rem;
-        border-radius: 50px;
-    }
-
     .btn-success {
         background-color: #8cc63f;
         border: none;
 
-        &:hover {
-            background-color: #78b32d;
+        &:hover{
+            background-color: #7bb133;
         }
-    }
-
-    .btn-danger {
-        background-color: #dc3545;
     }
 }
