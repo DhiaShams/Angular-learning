@@ -208,15 +208,8 @@ input:not(:checked)~.labels .fr {
     margin-right: 0.6rem;
 }
 
-.sign button{
-    background-color: #8CC63F;
-    color: white;
-    margin: 1rem 67.5rem;
-    font-size: small;
-    height: 2rem;
-    width: 10rem;
-    border: none;
-    border-radius: 50px;
+.sign input{
+    cursor: pointer;
 }
 
 .main {
@@ -247,6 +240,7 @@ input:not(:checked)~.labels .fr {
     border-radius: 50px;
     font-size: 11px;
     margin-right: 1rem;
+    cursor: pointer;
 }
 
 .text input::placeholder {

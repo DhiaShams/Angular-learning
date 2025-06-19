@@ -1,7 +1,6 @@
 .employee-container {
     margin: 2rem auto;
     padding: 1.5rem;
-    background: #f9f9f9;
     border-radius: 10px;
 
     .top {
@@ -9,15 +8,16 @@
             margin-bottom: 2rem;
             font-weight: 600;
         }
-        .add{
-            height: 2rem;
-            width: 5rem;
-            border-radius: 20px;
-            background-color: #d4d0d0;
 
-            &:hover{
-                background-color:#8CC63F;
-            }
+        .add {
+            height: 2rem;
+            width: 7rem;
+            border-radius: 50px;
+            background-color: #8CC63F;
+            color: white;
+            font-size: 11px;
+            border: none;
+            margin: 1rem;
         }
 
     }
@@ -32,6 +32,7 @@
             padding: 1rem;
             border-bottom: 1px solid #ddd;
             text-align: left;
+            border-right: 1px solid #ccc;
         }
 
         th {
@@ -41,13 +42,15 @@
             font-size: 0.9rem;
         }
 
-        tbody tr:hover {
-            background: #f1f1f1;
+        td:last-child,
+        th:last-child {
+            border-right: none;
         }
 
         .action-buttons {
 
-            .bin,.edit {
+            .bin,
+            .edit {
                 background: none;
                 border: none;
                 cursor: pointer;
@@ -59,5 +62,11 @@
                 }
             }
         }
+    }
+}
+
+.left {
+    button {
+        margin: 0.5rem;
     }
 }

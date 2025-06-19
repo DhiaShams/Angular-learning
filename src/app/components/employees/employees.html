@@ -1,8 +1,8 @@
 <div class="employee-container">
     <div class="top d-flex justify-content-between">
         <h1>Employee List</h1>
-        <section class="bg-light">
-            <button class="add" data-bs-toggle="modal" data-bs-target="#add-modal">Add</button>
+        <section>
+            <button class="add" data-bs-toggle="modal" data-bs-target="#add-modal">Add Employee</button>
         </section>
 
         <!-- Modal -->
@@ -63,7 +63,11 @@
                 <th>Sl no</th>
                 <th>Name</th>
                 <th>Designation</th>
+                <th>Joining Date</th>
+                <th>Age</th>
+                <th>Gender</th>
                 <th>Salary</th>
+                <th>Shift</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
@@ -73,9 +77,14 @@
                 <td>{{ i+1 }}</td>
                 <td>{{ employee.name }}</td>
                 <td>{{ employee.designation }}</td>
+                <td>{{ employee.date }}</td>
+                <td>{{ employee.age }}</td>
+                <td>{{ employee.gender }}</td>
                 <td>{{ employee.salary}}</td>
+                <td>{{ employee.shift}}</td>
                 <td class="action-buttons">
-                    <button (click)="editEmployee(employee)" class="edit" data-bs-toggle="modal" data-bs-target="#edit-modal">
+                    <button (click)="editEmployee(employee)" class="edit" data-bs-toggle="modal"
+                        data-bs-target="#edit-modal">
                         <img src="assets/images/edit.png" alt="">
                     </button>
 
@@ -92,15 +101,9 @@
                                 <div class="modal-body">
                                     <form>
                                         <div class="mb-3">
-                                            <label for="fname" class="form-label">First Name:</label>
-                                            <input type="text" class="form-control" id="fname"
-                                                placeholder="Enter first name">
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="lname" class="form-label">Last Name:</label>
-                                            <input type="text" class="form-control" id="lname"
-                                                placeholder="Enter last name">
+                                            <label for="fname" class="form-label">Name:</label>
+                                            <input type="text" class="form-control" id="name"
+                                                placeholder="Enter your name">
                                         </div>
 
                                         <div class="mb-3">
@@ -118,11 +121,51 @@
                                             </select>
                                         </div>
 
+                                        <div class="mb-3">
+                                            <label for="date" class="form-label">Joining Date:</label>
+                                            <input type="date" class="form-control" id="date"
+                                                placeholder="Enter your date of joining">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="age" class="form-label">Age:</label>
+                                            <input type="number" class="form-control" id="age"
+                                                placeholder="Enter your age">
+                                        </div>
+
+                                        <!-- Gender field in your modal form -->
+                                        <div class="form-group">
+                                            <label>Gender:</label>
+                                            <div>
+                                                <label>
+                                                    <input type="radio" name="gender" value="Male">
+                                                    Male
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="gender" value="Female">
+                                                    Female
+                                                </label>
+                                                <label>
+                                                    <input type="radio" name="gender" value="Other">
+                                                    Other
+                                                </label>
+                                            </div>
+                                        </div>
 
                                         <div class="mb-3">
                                             <label for="salary" class="form-label">Salary:</label>
                                             <input type="number" class="form-control" id="salary"
-                                                placeholder="Enter salary">
+                                                placeholder="Enter your salary">
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="shift" class="form-label">Shift:</label>
+                                            <select class="form-control" id="shift">
+                                                <option value="8am-6pm">8am-6pm</option>
+                                                <option value="9am-8pm">9am-8pm</option>
+                                                <option value="6pm-8am">6pm-8am</option>
+                                                <option value="8pm-9am">8pm-9am</option>
+                                            </select>
                                         </div>
                                     </form>
                                 </div>

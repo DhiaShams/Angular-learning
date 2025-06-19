@@ -9,8 +9,8 @@ import { Component } from '@angular/core';
 export class Employees {
   //employees : any[] = [];
   employees= [
-    {name:'Maria',designation:'trainee',salary:'10,000'},
-    {name:'Peter',designation:'manager',salary:'30,000'}
+    {name:'Maria',designation:'trainee',salary:'10,000',date:'25-10-2024',age:'23',shift:'8-6',gender:'Female'}
+    //{name:'Peter',designation:'manager',salary:'30,000'}
   ];
   public visible = false;
 
