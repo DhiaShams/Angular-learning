@@ -143,17 +143,17 @@ input:not(:checked)~.labels .fr {
 }
 
 #add {
-    padding: 1rem 1.5rem;
     border: none;
     height: 32px;
     width: 120px;
     background-color: #8CC63F;
     border-radius: 50px;
     font-size: 11px;
-    margin-right: 0.6rem;
+    margin: 0 1rem;
+    color: white;
 }
 
-.sign input{
+.sign button{
     cursor: pointer;
 }
 
@@ -176,8 +176,8 @@ input:not(:checked)~.labels .fr {
     color: white;
 }
 
-.text input {
-    padding: 1rem 1.5rem;
+.text button {
+    color: #8CC63F;
     border: none;
     height: 32px;
     width: 120px;

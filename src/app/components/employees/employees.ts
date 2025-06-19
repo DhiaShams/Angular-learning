@@ -122,8 +122,14 @@ export class Employees {
 
   }
   setFormMode(mode: any) {
+    console.log('kerii');
+    
     this.formMode = mode;
+      $("#form-modal").modal('show');
     this.submitted = false;
+    if(mode == 'add'){
+      this.employeeForm.reset();
+    }
   }
   getEmployeeList() {
     this.Api.getEmployeeList().subscribe(data => {
