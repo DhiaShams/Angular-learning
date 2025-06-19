@@ -2,11 +2,14 @@
 <label for="sidebar-toggle" class="hamburger-label">
   <img src="assets/images/hamburger.png" alt="menu" class="hamburger">
 </label>
+
 <div class="container-fluid" id="main-content">
   <div class="row">
     <div class="spare">
       <img src="assets/images/logo.png" alt="">
     </div>
+
+    <!-- Sidebar -->
     <div class="sidebar col-2">
       <label for="sidebar-toggle" class="close-btn">
         <img src="assets/images/cross.png" alt="Close" id="cross">
@@ -16,29 +19,20 @@
       </div>
       <div class="options">
         <ul>
-          <li>
-            <img src="assets/images/Rectangle 22.png" alt="" class="rect" id="rect1">
-            <button id="s1">Signatures</button>
-          </li>
-          <li>
-            <img src="assets/images/Rectangle 22.png" alt="" class="rect">
-            <button>Documents</button>
-          </li>
-          <li>
-            <img src="assets/images/Rectangle 22.png" alt="" class="rect">
-            <button>Seal Signature</button>
-          </li>
-          <li>
-            <img src="assets/images/Rectangle 22.png" alt="" class="rect">
-            <button>Notifications</button>
-          </li>
-          <li>
-            <img src="assets/images/Rectangle 22.png" alt="" class="rect">
-            <button>Profile</button>
-          </li>
+          <li><img src="assets/images/Rectangle 22.png" alt="" class="rect" id="rect1"><button routerLink="/signatures">Signatures</button></li>
+          <li><img src="assets/images/Rectangle 22.png" alt="" class="rect"><button routerLink="/documents">Documents</button></li>
+          <li><img src="assets/images/Rectangle 22.png" alt="" class="rect"><button routerLink="/seal">Seal Signature</button></li>
+          <li><img src="assets/images/Rectangle 22.png" alt="" class="rect"><button routerLink="/notifications">Notifications</button></li>
+          <li><img src="assets/images/Rectangle 22.png" alt="" class="rect"><button routerLink="/profile">Profile</button></li>
         </ul>
       </div>
     </div>
+
+    <!-- Content Area -->
+    <div class="col content-area">
+      <router-outlet></router-outlet>
+    </div>
   </div>
 </div>
+
 <label for="sidebar-toggle" class="sidebar-overlay"></label>

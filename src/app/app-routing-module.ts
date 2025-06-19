@@ -7,20 +7,16 @@ import { Employees } from './components/employees/employees';
 import { Layout } from './components/layout/layout';
 
 const routes: Routes = [
+  { path: 'signup', component: Signup },
+  { path: '', component: Login },
   {
-    path:'',component: Signup
-  },
-  {
-    path:'login',component:Login
-  },
-  {
-    path:'dashboard',component:Dashboard
-  },
-  {
-    path:'list',component:Employees
-  },
-  {
-    path:'layout',component:Layout
+    path: '',
+    component: Layout,
+    children: [
+      { path: 'dashboard', component: Dashboard },
+      { path: 'list', component: Employees },
+      { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
+    ]
   }
 ];
 
@@ -28,4 +24,4 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
