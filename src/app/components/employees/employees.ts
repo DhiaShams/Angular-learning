@@ -125,7 +125,6 @@ export class Employees {
   setFormMode(mode: any) {
     console.log(mode);
     $("#form-modal").modal('show');
-    console.log('kittee');
     this.formMode = mode;
     this.submitted = false;
     if(mode == 'add'){
