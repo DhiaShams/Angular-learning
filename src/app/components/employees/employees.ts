@@ -36,7 +36,7 @@ export class Employees {
 
   ngOnInit(): void {
     this.employeeForm = this.fb.group({
-      name: ['', [Validators.required, Validators.pattern('^[^\\s]+.*')]],
+      name: ['', [Validators.required, Validators.pattern('^[A-Za-z]+( [A-Za-z]+)*$')]],
       designation: ['', [Validators.required]],
       date: ['', [Validators.required]],
       age: ['', [Validators.required, Validators.pattern('^[0-9]+$'), Validators.min(18)]],
