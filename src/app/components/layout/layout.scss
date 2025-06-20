@@ -1,4 +1,3 @@
-
 * {
     padding: 0;
     margin: 0;
@@ -21,37 +20,40 @@ body {
 
 ul {
     list-style-type: none;
-}
 
-ul li {
-    padding-block: 0.75rem;
-    color: #000000;
-}
+    li {
+        padding-block: 0.75rem;
+        color: #000000;
 
-ul li img {
-    visibility: hidden;
-}
+        button {
+            border: none;
+            background-color: white;
+            margin: 0 1rem;
 
-#rect1 {
-    visibility: visible;
-}
+            img {
+                visibility: hidden;
+            }
 
-ul li button {
-    border: none;
-    background-color: white;
-    margin: 0 1rem;
-}
+            &:focus {
+                color: #8CC63F;
 
-ul li button:focus {
-    color: #8CC63F;
-    padding-left: 10px;
+                img {
+                    visibility: visible;
+                }
+
+                span {
+                    padding-left: 10px;
+                }
+            }
+        }
+    }
 }
 
 .rect {
     height: 40px;
 }
 
-.sidebar{
+.sidebar {
     margin-left: 0.5rem;
 }
 
@@ -108,6 +110,7 @@ ul li button:focus {
         width: 20px;
         margin: 1.5rem;
         float: right;
+        cursor: pointer;
     }
 
     .spare {
@@ -125,27 +128,19 @@ ul li button:focus {
     }
 
     .sidebar {
-        position: fixed !important;
-        top: 0;
-        left: 0;
-        width: 80vw !important;
-        max-width: 350px;
+        position: fixed;
+        width: 50%;
         height: 100vh;
         background: #fff;
         z-index: 1102;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
-        display: block !important;
+        display: block;
     }
 
     .sidebar .logo {
         visibility: hidden;
-    }
-
-    .sidebar:active {
-        display: block;
-        width: 50% !important;
     }
 
     .hamburger-label {
@@ -159,7 +154,7 @@ ul li button:focus {
         position: absolute;
         height: 14px;
         width: 13px;
-        top: 13.5rem;
+        top: 14rem;
         left: 1.5rem;
     }
 
@@ -171,12 +166,7 @@ ul li button:focus {
         display: block;
     }
 
-    .sidebar-toggle:checked~.container-fluid {
-        pointer-events: none;
-        user-select: none;
-    }
-
-    .sidebar-toggle:checked~.container-fluid .content {
+    .sidebar-toggle:checked~.container-fluid .content-area {
         filter: blur(4px);
     }
 
@@ -207,10 +197,10 @@ ul li button:focus {
     }
 
     .sidebar {
-        position: fixed !important;
+        position: fixed;
         top: 0;
         left: 0;
-        width: 80vw !important;
+        width: 80vw;
         max-width: 350px;
         height: 100vh;
         background: #fff;
@@ -218,7 +208,7 @@ ul li button:focus {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
         box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
-        display: block !important;
+        display: block;
     }
 
     .hamburger {
@@ -227,12 +217,12 @@ ul li button:focus {
         position: absolute;
         height: 12px;
         width: 14px;
-        top: 8.8rem;
+        top: 7.8rem;
         left: 1.5rem;
     }
 }
 
 .row .content-area {
-  width: auto !important;
-  max-width: none !important;
+    width: auto !important;
+    max-width: none !important;
 }

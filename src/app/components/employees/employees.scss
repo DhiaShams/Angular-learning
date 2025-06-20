@@ -108,7 +108,7 @@
 
 .add-modal {
     h4 {
-        margin-left: 16rem
+        margin: 0 auto
     }
 }
 
@@ -116,7 +116,7 @@
     gap: 1rem;
 
     h5 {
-        margin: 0 6rem;
+        margin: 0 auto
     }
 }
 
@@ -196,4 +196,8 @@
     color: white;
     font-size: 11px;
     border: none;
+}
+
+.text-center{
+    min-height:inherit;
 }
