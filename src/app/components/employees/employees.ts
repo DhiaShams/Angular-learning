@@ -129,6 +129,8 @@ export class Employees {
     this.submitted = false;
     if(mode == 'add'){
       this.employeeForm.reset();
+      this.editMode=false;
+      this.employeeId=null;
     }
   }
   getEmployeeList() {

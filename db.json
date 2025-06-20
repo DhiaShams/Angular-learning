@@ -1,15 +1,37 @@
 {
   "employees": [
     {
-      "id": "38a9",
-      "name": "Pavan Raj",
-      "designation": "Trainee",
-      "date": "2025-06-06",
-      "age": 45,
+      "name": "Mario",
+      "designation": "Team Lead",
+      "date": "2025-06-03",
+      "age": 25,
       "gender": "Male",
-      "shift": "9am-8pm",
-      "phone": "9496957451",
-      "salary": 200000
+      "shift": "8pm-9am",
+      "phone": "9856475826",
+      "salary": 2548,
+      "id": "133e"
+    },
+    {
+      "id": "2f29",
+      "name": "Divya",
+      "designation": "Manager",
+      "date": "2022-12-23",
+      "age": 27,
+      "gender": "Female",
+      "shift": "6pm-8am",
+      "phone": "9874236510",
+      "salary": 40000
+    },
+    {
+      "id": "429c",
+      "name": "Praveen",
+      "designation": "Trainee",
+      "date": "2025-06-05",
+      "age": 21,
+      "gender": "Male",
+      "shift": "8am-6pm",
+      "phone": "9856475826",
+      "salary": 10000
     }
   ]
 }
