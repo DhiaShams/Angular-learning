@@ -3,7 +3,7 @@
     margin: 0;
 }
 
-body {
+#main-content {
     background-image: url('/assets/images/Vector.png');
 }
 
@@ -135,7 +135,6 @@ ul {
         z-index: 1102;
         transform: translateX(-100%);
         transition: transform 0.3s ease;
-        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
         display: block;
     }
 
@@ -194,21 +193,6 @@ ul {
 
     .options {
         margin-top: -7rem;
-    }
-
-    .sidebar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 80vw;
-        max-width: 350px;
-        height: 100vh;
-        background: #fff;
-        z-index: 1102;
-        transform: translateX(-100%);
-        transition: transform 0.3s ease;
-        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.15);
-        display: block;
     }
 
     .hamburger {

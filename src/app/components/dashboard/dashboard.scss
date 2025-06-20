@@ -262,8 +262,8 @@ input:not(:checked)~.labels .fr {
         visibility: visible;
     }
 
-    #top-nav {
-        margin-top: 1rem;
+    #top-nav{
+        margin: 1rem;
     }
 
     .lang {
@@ -280,7 +280,6 @@ input:not(:checked)~.labels .fr {
 
     .content {
         width: 85% !important;
-        margin: 2rem !important;
     }
 
     .main {
