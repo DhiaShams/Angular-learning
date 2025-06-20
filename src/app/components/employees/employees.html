@@ -110,7 +110,7 @@
                         <div class="mb-3">
                             <label for="date" class="form-label">Joining Date:</label>
                             <input type="date" class="form-control" id="date" placeholder="Enter your date of joining"
-                                formControlName="date" [(ngModel)]="employeeObj.date">
+                                formControlName="date" [(ngModel)]="employeeObj.date" [max]="today">
                             <div *ngIf="submitted && f['date'].errors" class="space error">
                                 <div>{{ 'Please select your joining date' }}</div>
                             </div>

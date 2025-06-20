@@ -30,7 +30,7 @@ export class Employees {
   response: any;
   formMode: any;
   editMode = false;
-
+  today:string = new Date().toISOString().split('T')[0];
 
   constructor(private fb: FormBuilder, private router: Router, private Api: ApiService) { }
 
