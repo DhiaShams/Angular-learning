@@ -1,15 +1,3 @@
 {
-  "employees": [
-    {
-      "name": "Pavan Raj",
-      "designation": "Intern",
-      "date": "2025-06-18",
-      "age": 23,
-      "gender": "Male",
-      "shift": "9am-8pm",
-      "phone": "9496957456",
-      "salary": 33333,
-      "id": "7e12"
-    }
-  ]
+  "employees": []
 }
