@@ -107,7 +107,8 @@ export class Employees {
         })
       })
 
-    } else {
+    } 
+    else {
       console.log('add');
       
       const data = {
@@ -122,10 +123,10 @@ export class Employees {
 
   }
   setFormMode(mode: any) {
-    console.log('kerii');
-    
+    console.log(mode);
+    $("#form-modal").modal('show');
+    console.log('kittee');
     this.formMode = mode;
-      $("#form-modal").modal('show');
     this.submitted = false;
     if(mode == 'add'){
       this.employeeForm.reset();

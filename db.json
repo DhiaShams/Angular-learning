@@ -1,26 +1,15 @@
 {
   "employees": [
     {
-      "name": "Arjun Raj",
-      "designation": "Team Lead",
-      "date": "2024-01-04",
+      "name": "Pavan Raj",
+      "designation": "Intern",
+      "date": "2025-06-18",
       "age": 23,
       "gender": "Male",
       "shift": "9am-8pm",
-      "phone": "9496957459",
-      "salary": 40000,
-      "id": "8234"
-    },
-    {
-      "name": "Aman Gupta",
-      "designation": "Manager",
-      "date": "2025-06-03",
-      "age": 40,
-      "gender": "Male",
-      "shift": "6pm-8am",
-      "phone": "0486212345",
-      "salary": 39997,
-      "id": "dd1e"
+      "phone": "9496957456",
+      "salary": 33333,
+      "id": "7e12"
     }
   ]
 }
